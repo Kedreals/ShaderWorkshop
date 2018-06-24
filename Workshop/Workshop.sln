@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Workshop", "Workshop\Workshop.csproj", "{DC995A86-80A1-47BC-BE3E-EE1061305B94}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC995A86-80A1-47BC-BE3E-EE1061305B94}.Debug|x86.ActiveCfg = Debug|x86
+		{DC995A86-80A1-47BC-BE3E-EE1061305B94}.Debug|x86.Build.0 = Debug|x86
+		{DC995A86-80A1-47BC-BE3E-EE1061305B94}.Release|x86.ActiveCfg = Release|x86
+		{DC995A86-80A1-47BC-BE3E-EE1061305B94}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FD312FE4-DC54-4014-8A72-2647E4538918}
+	EndGlobalSection
+EndGlobal
