@@ -24,25 +24,13 @@
 /processorParam:PremultiplyTextureAlpha=True
 /processorParam:PremultiplyVertexColors=True
 /processorParam:ResizeTexturesToPowerOfTwo=False
-/processorParam:RotationX=-90
+/processorParam:RotationX=0
 /processorParam:RotationY=0
 /processorParam:RotationZ=0
-/processorParam:Scale=1
+/processorParam:Scale=0.005
 /processorParam:SwapWindingOrder=False
 /processorParam:TextureFormat=Compressed
 /build:Birch.fbx
-
-#begin BirchTexture1.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:BirchTexture1.png
 
 #begin Cat.fbx
 /importer:FbxImporter
@@ -55,10 +43,10 @@
 /processorParam:PremultiplyTextureAlpha=True
 /processorParam:PremultiplyVertexColors=True
 /processorParam:ResizeTexturesToPowerOfTwo=False
-/processorParam:RotationX=-90
+/processorParam:RotationX=0
 /processorParam:RotationY=0
 /processorParam:RotationZ=0
-/processorParam:Scale=1
+/processorParam:Scale=0.005
 /processorParam:SwapWindingOrder=False
 /processorParam:TextureFormat=Compressed
 /build:Cat.fbx
@@ -74,18 +62,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:CatTexture.png
-
-#begin CatTexture1.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:CatTexture1.png
 
 #begin NormalMap.png
 /importer:TextureImporter
@@ -110,7 +86,7 @@
 /processorParam:PremultiplyTextureAlpha=True
 /processorParam:PremultiplyVertexColors=True
 /processorParam:ResizeTexturesToPowerOfTwo=False
-/processorParam:RotationX=-90
+/processorParam:RotationX=0
 /processorParam:RotationY=0
 /processorParam:RotationZ=0
 /processorParam:Scale=1
@@ -129,10 +105,10 @@
 /processorParam:PremultiplyTextureAlpha=True
 /processorParam:PremultiplyVertexColors=True
 /processorParam:ResizeTexturesToPowerOfTwo=False
-/processorParam:RotationX=-90
+/processorParam:RotationX=0
 /processorParam:RotationY=0
 /processorParam:RotationZ=0
-/processorParam:Scale=1
+/processorParam:Scale=0.0025
 /processorParam:SwapWindingOrder=False
 /processorParam:TextureFormat=Compressed
 /build:Schorsch.fbx

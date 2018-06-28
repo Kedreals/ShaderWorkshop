@@ -12,6 +12,19 @@ namespace Workshop
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        GameObject m_Tree;
+        GameObject m_Cat;
+        GameObject m_Schorsch;
+        GameObject m_Plane;
+
+        Matrix m_View;
+        Matrix m_Projection;
+
+        Vector3 m_Light;
+        float m_ell;
+
+        Camera m_Camera;
+
         public MainGame()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -28,6 +41,11 @@ namespace Workshop
         {
             // TODO: Add your initialization logic here
 
+            m_Camera = new Camera(new Vector3(1, 1, 5), new Vector3(0, 2, 0), Vector3.Up, MathHelper.ToRadians(60));
+
+            m_Light = new Vector3(-10, 10, -10);
+            m_ell = 10;
+
             base.Initialize();
         }
 
@@ -39,8 +57,14 @@ namespace Workshop
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            m_Cat = new GameObject(Content.Load<Model>("Cat"));
+            m_Schorsch = new GameObject(Content.Load<Model>("Schorsch"));
+            m_Tree = new GameObject(Content.Load<Model>("Birch"));
+            m_Plane = new GameObject(Content.Load<Model>("Plane"));
 
-            // TODO: use this.Content to load your game content here
+            m_Cat.Position = new Vector3(0.5f, 0, 2);
+            m_Schorsch.Position = new Vector3(1, 0, 1);
+            m_Tree.Position = new Vector3(0, -0.5f, 1);
         }
 
         /// <summary>
@@ -74,8 +98,12 @@ namespace Workshop
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.RasterizerState = RasterizerState.CullNone;
 
-            // TODO: Add your drawing code here
+            m_Cat.Render(m_Camera.View, m_Camera.Projection, m_Light);
+            m_Schorsch.Render(m_Camera.View, m_Camera.Projection, m_Light);
+            m_Plane.Render(m_Camera.View, m_Camera.Projection, m_Light);
+            m_Tree.Render(m_Camera.View, m_Camera.Projection, m_Light);
 
             base.Draw(gameTime);
         }
