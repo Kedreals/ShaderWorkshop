@@ -39,14 +39,14 @@ namespace Workshop
             m_World_changed = true;
         }
 
-        public void Render(Matrix view, Matrix projection, Vector3 light, Texture2D shadowMap = null)
+        public void Render(Matrix view, Matrix projection, float? texRepetitions = null, Vector3? light = null, float? ell_value = null, Texture2D shadowMap = null)
         {
             if (m_World_changed)
             {
                 m_World = Matrix.CreateWorld(m_Position, Vector3.Forward, Vector3.Up) * Matrix.CreateRotationX(m_Rotation.X) * Matrix.CreateRotationY(m_Rotation.Y) * Matrix.CreateRotationZ(m_Rotation.Z);
                 m_World_changed = false;
             }
-
+            
             if (m_Effect == null)
             {
                 m_Model.Draw(m_World, view, projection);
@@ -58,12 +58,22 @@ namespace Workshop
                 foreach(ModelMeshPart part in mesh.MeshParts)
                 {
                     part.Effect = m_Effect;
-                    m_Effect.CurrentTechnique.Passes[0].Apply();
-
+                    
                     m_Effect.Parameters["World"].SetValue(m_World);
                     m_Effect.Parameters["View"].SetValue(view);
                     m_Effect.Parameters["Projection"].SetValue(projection);
-                    m_Effect.Parameters["LightPosition"].SetValue(light);
+                    if(texRepetitions != null)
+                    {
+                        m_Effect.Parameters["TexRepetitions"].SetValue(texRepetitions.Value);
+                    }
+                    if(light != null)
+                    {
+                        m_Effect.Parameters["LightPosition"].SetValue(light.Value);
+                    }
+                    if (ell_value != null)
+                    {
+                        m_Effect.Parameters["EllValue"].SetValue(ell_value.Value);
+                    }
                     if(m_Texture != null)
                     {
                         m_Effect.Parameters["Texture"].SetValue(m_Texture);

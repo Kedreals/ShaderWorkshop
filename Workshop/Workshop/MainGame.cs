@@ -57,10 +57,13 @@ namespace Workshop
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            m_Cat = new GameObject(Content.Load<Model>("Cat"));
-            m_Schorsch = new GameObject(Content.Load<Model>("Schorsch"));
-            m_Tree = new GameObject(Content.Load<Model>("Birch"));
-            m_Plane = new GameObject(Content.Load<Model>("Plane"));
+
+            Effect effect = Content.Load<Effect>("Texturing");
+
+            m_Cat = new GameObject(Content.Load<Model>("Cat"), effect, Content.Load<Texture2D>("CatTexture"));
+            m_Schorsch = new GameObject(Content.Load<Model>("Schorsch"), effect, Content.Load<Texture2D>("SchorschTexture"));
+            m_Tree = new GameObject(Content.Load<Model>("Birch"), effect, Content.Load<Texture2D>("BirchTexture1"));
+            m_Plane = new GameObject(Content.Load<Model>("Plane"), effect, Content.Load<Texture2D>("PlaneTexture"));
 
             m_Cat.Position = new Vector3(0.5f, 0, 2);
             m_Schorsch.Position = new Vector3(1, 0, 1);
@@ -100,10 +103,10 @@ namespace Workshop
             GraphicsDevice.Clear(Color.CornflowerBlue);
             GraphicsDevice.RasterizerState = RasterizerState.CullNone;
 
-            m_Cat.Render(m_Camera.View, m_Camera.Projection, m_Light);
-            m_Schorsch.Render(m_Camera.View, m_Camera.Projection, m_Light);
-            m_Plane.Render(m_Camera.View, m_Camera.Projection, m_Light);
-            m_Tree.Render(m_Camera.View, m_Camera.Projection, m_Light);
+            m_Plane.Render(m_Camera.View, m_Camera.Projection, 10, m_Light);
+            m_Cat.Render(m_Camera.View, m_Camera.Projection, 1, m_Light);
+            m_Tree.Render(m_Camera.View, m_Camera.Projection, 1, m_Light);
+            m_Schorsch.Render(m_Camera.View, m_Camera.Projection, 1, m_Light);
 
             base.Draw(gameTime);
         }
