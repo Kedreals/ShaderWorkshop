@@ -39,7 +39,10 @@ namespace Workshop
             m_World_changed = true;
         }
 
-        public void Render(Matrix view, Matrix projection, float? texRepetitions = null, Vector3? light = null, float? ell_value = null, Texture2D shadowMap = null)
+        public void Render(Matrix view, Matrix projection, 
+            float? texRepetitions = null, Vector3? light = null, 
+            float? ell_value = null, float? ambient_light_intensity = null, 
+            Texture2D shadowMap = null)
         {
             if (m_World_changed)
             {
@@ -66,13 +69,21 @@ namespace Workshop
                     {
                         m_Effect.Parameters["TexRepetitions"].SetValue(texRepetitions.Value);
                     }
+                    if(ambient_light_intensity != null)
+                    {
+                        m_Effect.Parameters["AmbientLightEll"].SetValue(ambient_light_intensity.Value);
+                    }
                     if(light != null)
                     {
-                        m_Effect.Parameters["LightPosition"].SetValue(light.Value);
-                    }
-                    if (ell_value != null)
-                    {
-                        m_Effect.Parameters["EllValue"].SetValue(ell_value.Value);
+                        if (ell_value != null)
+                        {
+                            m_Effect.Parameters["LightPosition"].SetValue(light.Value);
+                            m_Effect.Parameters["EllValue"].SetValue(ell_value.Value);
+                        }
+                        else
+                        {
+                            m_Effect.Parameters["LightDirection"].SetValue(light.Value);
+                        }
                     }
                     if(m_Texture != null)
                     {
