@@ -11,9 +11,6 @@ matrix World;
 matrix View;
 matrix Projection;
 
-float4 LightPosition;
-float EllValue;
-
 float TexRepetitions;
 
 texture Texture;

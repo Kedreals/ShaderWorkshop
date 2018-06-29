@@ -103,10 +103,10 @@ namespace Workshop
             GraphicsDevice.Clear(Color.CornflowerBlue);
             GraphicsDevice.RasterizerState = RasterizerState.CullNone;
 
-            m_Plane.Render(m_Camera.View, m_Camera.Projection, 10, m_Light);
-            m_Cat.Render(m_Camera.View, m_Camera.Projection, 1, m_Light);
-            m_Tree.Render(m_Camera.View, m_Camera.Projection, 1, m_Light);
-            m_Schorsch.Render(m_Camera.View, m_Camera.Projection, 1, m_Light);
+            m_Plane.Render(m_Camera.View, m_Camera.Projection, 10);
+            m_Cat.Render(m_Camera.View, m_Camera.Projection, 1);
+            m_Tree.Render(m_Camera.View, m_Camera.Projection, 1);
+            m_Schorsch.Render(m_Camera.View, m_Camera.Projection, 1);
 
             base.Draw(gameTime);
         }
