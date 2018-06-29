@@ -40,9 +40,9 @@ namespace Workshop
         }
 
         public void Render(Matrix view, Matrix projection, 
-            float? texRepetitions = null, Vector3? light = null, 
-            float? ell_value = null, float? ambient_light_intensity = null, 
-            Texture2D shadowMap = null)
+            float? texRepetitions = null, float? normalTexRepetition = null,
+            Vector3? light = null, float? ell_value = null, 
+            float? ambient_light_intensity = null, Texture2D shadowMap = null)
         {
             if (m_World_changed)
             {
@@ -92,6 +92,10 @@ namespace Workshop
                     if(m_NormalMap != null)
                     {
                         m_Effect.Parameters["NormalMap"].SetValue(m_NormalMap);
+                        if(normalTexRepetition != null)
+                        {
+                            m_Effect.Parameters["NormalTexRepetitions"].SetValue(normalTexRepetition.Value);
+                        }
                     }
                     if(shadowMap != null)
                     {

@@ -63,12 +63,12 @@ namespace Workshop
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            Effect effect = Content.Load<Effect>("Lighting");
+            Effect effect = Content.Load<Effect>("NormalMapping");
 
-            m_Cat = new GameObject(Content.Load<Model>("Cat"), effect, Content.Load<Texture2D>("CatTexture"));
-            m_Schorsch = new GameObject(Content.Load<Model>("Schorsch"), effect, Content.Load<Texture2D>("SchorschTexture"));
-            m_Tree = new GameObject(Content.Load<Model>("Birch"), effect, Content.Load<Texture2D>("BirchTexture1"));
-            m_Plane = new GameObject(Content.Load<Model>("Plane"), effect, Content.Load<Texture2D>("PlaneTexture"));
+            m_Cat = new GameObject(Content.Load<Model>("Cat"), effect, Content.Load<Texture2D>("CatTexture"), Content.Load<Texture2D>("CatNormalMap"));
+            m_Schorsch = new GameObject(Content.Load<Model>("Schorsch"), effect, Content.Load<Texture2D>("SchorschTexture"), Content.Load<Texture2D>("SchorschNormalMap"));
+            m_Tree = new GameObject(Content.Load<Model>("Birch"), effect, Content.Load<Texture2D>("BirchTexture1"), Content.Load<Texture2D>("BirchNormalMap"));
+            m_Plane = new GameObject(Content.Load<Model>("Plane"), effect, Content.Load<Texture2D>("PlaneTexture"), Content.Load<Texture2D>("PlaneNormalMap"));
 
             m_Cat.Position = new Vector3(0.5f, 0, 2);
             m_Schorsch.Position = new Vector3(1, 0, 1);
@@ -114,10 +114,10 @@ namespace Workshop
             GraphicsDevice.Clear(Color.CornflowerBlue);
             GraphicsDevice.RasterizerState = RasterizerState.CullNone;
 
-            m_Plane.Render(m_Camera.View, m_Camera.Projection, 10, m_Directional_Light, m_ell, m_ambient_light_ell);
-            m_Cat.Render(m_Camera.View, m_Camera.Projection, 1, m_Directional_Light, m_ell, m_ambient_light_ell);
-            m_Tree.Render(m_Camera.View, m_Camera.Projection, 1, m_Directional_Light, m_ell, m_ambient_light_ell);
-            m_Schorsch.Render(m_Camera.View, m_Camera.Projection, 1, m_Directional_Light, m_ell, m_ambient_light_ell);
+            m_Plane.Render(m_Camera.View, m_Camera.Projection, 20, 20, m_Directional_Light, m_ell, m_ambient_light_ell);
+            m_Cat.Render(m_Camera.View, m_Camera.Projection, 1, 1, m_Directional_Light, m_ell, m_ambient_light_ell);
+            m_Tree.Render(m_Camera.View, m_Camera.Projection, 1, 1, m_Directional_Light, m_ell, m_ambient_light_ell);
+            m_Schorsch.Render(m_Camera.View, m_Camera.Projection, 1, 1, m_Directional_Light, m_ell, m_ambient_light_ell);
 
             base.Draw(gameTime);
         }
